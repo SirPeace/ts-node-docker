@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/www/src
+      - ./nodemon.json:/var/www/nodemon.json
+    container_name: ts-node-docker
+    expose:
+      - '4000'
+    ports:
+      - '4000:4000'
+    command: yarn dev
